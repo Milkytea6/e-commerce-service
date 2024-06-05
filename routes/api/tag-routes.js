@@ -42,11 +42,12 @@ router.put('/:id', async (req, res) => {
   try {
     const tagData = await Tag.update(req.body, {
       where: {
-        tag_name: req.params.tag_name,
+        id: req.params.id,
       },
     });
     res.status(200).json(tagData);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Internal server error!!!' });
   }
 });

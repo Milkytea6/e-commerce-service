@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
   try {
     const categoryData = await Category.update(req.body, {
       where: {
-        id: id.params.id,
+        id: req.params.id,
       },
     });
     if (!categoryData) {
@@ -56,6 +56,7 @@ router.put('/:id', async (req, res) => {
     }
     res.status(200).json(categoryData);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Internal server error!' });
   }
 });
