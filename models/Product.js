@@ -37,7 +37,6 @@ Product.init(
       type: DataTypes.INTEGER,
       // ref Category model id
       references: {
-        // This references the `driver` model, which we set in `Driver.js` as its `modelName` property
         model: 'category',
         key: 'id',
       },
